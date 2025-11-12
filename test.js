@@ -1,7 +1,8 @@
-var request = require('supertest');
-var app = require('../index.js');
-describe('GET /will', function() {
-    it('respond with hello world', function(done) {
-        request(app).get('/will').expect('{ "response": "Hello World" }', done);
-    });
-});
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => res.send('{ "response": "Hello From DSCE" }'));
+app.get('/will', (req, res) => res.send('{ "response": "Hello World" }'));
+app.get('/ready', (req, res) => res.send('{ "response": "Great!, It works!" }'));
+
+module.exports = app;
