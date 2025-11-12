@@ -1,15 +1,6 @@
-var express = require('express');
-var app = express();
+const app = require('./app');
+const PORT = process.env.PORT || 3000;
 
-app.get('/', function (req, res) {
-    res.send('{ "response": "Hello From DSCE" }');
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
-
-app.get('/will', function (req, res) {
-    res.send('{ "response": "Hello World" }');
-});
-app.get('/ready', function (req, res) {
-    res.send('{ "response": " Great!, It works!" }');
-});
-app.listen(process.env.PORT || 3000);
-module.exports = app;
